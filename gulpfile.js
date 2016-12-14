@@ -1,7 +1,7 @@
 const gulp = require('gulp');
 const less = require('gulp-less');
 const LessAutoprefix = require('less-plugin-autoprefix');
-const autoprefix = new LessAutoprefix({browsers: ['last 2 versions']});
+const autoprefix = new LessAutoprefix({ browsers: ['last 2 versions'] });
 const babel = require('gulp-babel');
 const concat = require('gulp-concat');
 const uglify = require("gulp-uglify-cli");
@@ -15,17 +15,19 @@ gulp.task('less', () => {
             paths: [path.join(__dirname, "less", "includes")],
             plugins: [autoprefix],
             compress: true
-            }))
+        }))
         .pipe(gulp.dest('./css'))
-    });
+});
 
 gulp.task('babel', () => {
-    return gulp.src([path.join(__dirname, 'src','app.js')])
+    return gulp.src([path.join(__dirname, 'src', 'data_request.js'),
+            path.join(__dirname, 'src', 'app.js')
+        ])
         .pipe(concat('app.js'))
         .pipe(babel({
             presets: ['es2015']
-            }))
+        }))
         .pipe(gulp.dest('./js'))
-    });
+});
 
 gulp.task('build', ['less', 'babel']);
