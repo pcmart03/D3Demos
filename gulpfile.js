@@ -20,7 +20,10 @@ gulp.task('less', () => {
 });
 
 gulp.task('babel', () => {
-    return gulp.src([path.join(__dirname, 'src', 'data_request.js'),
+    return gulp.src([
+            path.join(__dirname, 'src', 'line_chart.js'),
+            path.join(__dirname, 'src', 'bar_chart.js'),
+            path.join(__dirname, 'src', 'data_parse.js'),
             path.join(__dirname, 'src', 'app.js')
         ])
         .pipe(concat('app.js'))
