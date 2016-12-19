@@ -1,5 +1,5 @@
 function parseYear(year, data) {
-    const temp = parseInt(data[year].value, 10);
+    const temp = parseFloat(data[year].value, 10);
     const currentYear = parseInt(year.slice(0, -2), 10);
     const parsedData = { year: currentYear, temp: temp };
     return parsedData;
@@ -42,4 +42,8 @@ function groupByDecade(data) {
         }
     });
     return decadeObjects;
+}
+
+function tempArray(data) {
+    return data.map(obj => obj.temp);
 }

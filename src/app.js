@@ -4,8 +4,12 @@ const tempUrl = 'https://www.ncdc.noaa.gov/cag/time-series/us/110/00/tavg/ytd/12
 fetch(tempUrl)
     .then(blob => blob.json())
     .then(response => {
+        console.log(response);
         const dataArray = parseData(response);
         const groupedByDecade = groupByDecade(dataArray);
+        const justTemps = tempArray(dataArray);
+
         drawLineChart(dataArray);
         drawBarChart(groupedByDecade);
+        drawHistogram(justTemps);
     });
