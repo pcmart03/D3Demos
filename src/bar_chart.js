@@ -11,7 +11,7 @@ function drawBarChart(data) {
                 .attr("transform", `translate(${margin.left}, ${margin.top})`);
  
     x.domain(data.map(d => d.year));
-    y.domain([0, d3.max(data, d => d.temp)]);
+    y.domain([d3.min(data, d => d.temp) - 1 , d3.max(data, d => d.temp)]);
 
     g.append("g")
         .attr("class", "axis axis--x")
@@ -21,7 +21,7 @@ function drawBarChart(data) {
     g.append("g")
         .attr("class", "axis axis--y bar-chart-axis")
         .call(d3.axisLeft(y)
-                .ticks(10)
+                .ticks(15)
                 .tickSize(-width)
                 .tickFormat(d3.format("")))
      .append("text")
