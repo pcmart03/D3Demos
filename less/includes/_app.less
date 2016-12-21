@@ -1,0 +1,33 @@
+.app {
+    width: 680px;
+    margin: 0 auto;
+    .panels-container {
+        position: relative;
+        width: 640px;
+        height: 440px;
+        margin: 10px auto 10px auto;
+        padding: 20px;
+        background-color: #FFF;
+        box-sizing: border-box;
+        overflow: hidden;
+        .panel {
+            position: absolute;
+            transition: all 0.7s;
+            transform: translateY(110%);
+            svg {
+                border: 1px solid black;
+            }
+            &.active {
+                transform: translateX(0);
+            }
+        }
+    }
+
+    .panels-control {
+        margin-right: auto;
+        margin-left: auto;
+        width: 640px;
+        height: 50px;
+        background-color: #FFF;
+    }
+}

@@ -11,21 +11,24 @@
 </head>
 
 <body>
-    <div>
-        <h1>Line chart</h1>
-        <svg class="line-chart" width="600" height="500"></svg>
-    </div>
-    <div>
-        <h1>Bar chart</h1>
-        <svg class="bar-chart" width="600" height="500"></svg>
-    </div>
-    <div>
-        <h1>Histogram</h1>
-        <svg class="hist" width="600" height="500"></svg>
-    </div>
-    <div>
-        <h1>Positive Negative Chart</h1>
-        <svg class="pos-neg" width="600" height="500"></svg>
+    <h1 class="title">D3 Chart Demonstrations</h1>
+    <div class="app">
+        <div class="panels-control"></div>
+        <div class="panels-container">
+            <div class="panel active">
+                <svg class="line-chart" width="600" height="400"></svg>
+            </div>
+            <div class="panel">
+                <svg class="bar-chart" width="600" height="400"></svg>
+            </div>
+            <div class="panel">
+                <svg class="hist" width="600" height="400"></svg>
+            </div>
+            <div class="panel">
+                <svg class="pos-neg" width="600" height="400"></svg>
+            </div>
+        <div class="panel-description"></div>
+        </div>
     </div>
     <script src="node_modules/d3/build/d3.min.js" type="text/javascript" charset="utf-8" async defer></script>
     <script src="js/app.js" type="text/javascript" charset="utf-8" async defer></script>
