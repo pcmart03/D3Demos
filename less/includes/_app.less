@@ -24,10 +24,29 @@
     }
 
     .panels-control {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
         margin-right: auto;
         margin-left: auto;
         width: 640px;
         height: 50px;
         background-color: #FFF;
+
+        .panel-button {
+            flex-grow: 1;
+            margin-left: 10px;
+            margin-right: 10px;
+            height: 30px;
+            background: @highlight;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+
+            &:hover, &.active {
+                background: @background;
+                color: #FFF;
+            }
+        }
     }
 }

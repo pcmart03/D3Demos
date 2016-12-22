@@ -159,13 +159,16 @@ function drawPosNeg(data) {
     });
 }
 
+// Converts year and temp to int and float
 function parseYear(year, data) {
     var temp = parseFloat(data[year].value, 10);
+    // Each year in the data set ends in 12. This removes it.
     var currentYear = parseInt(year.slice(0, -2), 10);
     var parsedData = { year: currentYear, temp: temp };
     return parsedData;
 }
 
+// Creates and array of objects containing the temp and year
 function parseData(response) {
     var data = response.data;
     var years = Object.keys(data);
@@ -178,6 +181,7 @@ function parseData(response) {
     return dataArray;
 }
 
+// Averages the temps over a each decade.
 function groupByDecade(data) {
     var currentDecade = void 0;
     var decadeTotal = 0;
@@ -205,12 +209,16 @@ function groupByDecade(data) {
     return decadeObjects;
 }
 
+// Returns an array of just temperatures.
 function tempArray(data) {
     return data.map(function (obj) {
         return obj.temp;
     });
 }
 
+/* Returns an object containing the mean of all temperatures and an array of objects
+ * consisting of the year, temp, and delta (distance from the mean)
+*/
 function distanceFromMean(data) {
     var dataMean = d3.mean(data, function (d) {
         return d.temp;
@@ -222,6 +230,23 @@ function distanceFromMean(data) {
     });
     return { mean: dataMean, data: [].concat(_toConsumableArray(dataArray)) };
 }
+(function () {
+    var buttons = document.querySelectorAll(".panel-button");
+    var panels = document.querySelectorAll(".panel");
+
+    buttons.forEach(function (button) {
+        return button.addEventListener('click', changePanel);
+    });
+
+    function changePanel(e) {
+        var requestedPanel = this.dataset.chart;
+        document.querySelector(".panel.active").classList.remove('active');
+        document.querySelector(".panel-button.active").classList.remove('active');
+        this.classList.add('active');
+        document.querySelector("div[data-chart=\"" + requestedPanel + "\"]").classList.add("active");
+    }
+})();
+
 // US Annual Average Temperature and Anomaly, 1880-2015 (vs. 1901-2000 Average)
 var tempUrl = 'https://www.ncdc.noaa.gov/cag/time-series/us/110/00/tavg/ytd/12/1895-2016.json?base_prd=true&begbaseyear=1901&endbaseyear=2000';
 

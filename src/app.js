@@ -8,9 +8,10 @@ fetch(tempUrl)
         const groupedByDecade = groupByDecade(dataArray);
         const justTemps = tempArray(dataArray);
         const distFromMean = distanceFromMean(groupedByDecade);
-        
+
         drawLineChart(dataArray);
         drawBarChart(groupedByDecade);
         drawHistogram(justTemps);
         drawPosNeg(distFromMean);
+
     });

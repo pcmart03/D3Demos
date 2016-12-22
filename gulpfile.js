@@ -26,6 +26,7 @@ gulp.task('babel', () => {
             path.join(__dirname, 'src', 'histogram.js'),
             path.join(__dirname, 'src', 'pos-neg-chart.js'),
             path.join(__dirname, 'src', 'data_parse.js'),
+            path.join(__dirname, 'src', 'controls.js'),
             path.join(__dirname, 'src', 'app.js')
         ])
         .pipe(concat('app.js'))
