@@ -1,6 +1,6 @@
 # D3 Examples
 
-This project is an exercise in using D3 V4 and ES2016 to create charts. It uses data from the National Centers for Environmental Information report on US Annual Average Temperature and Anomaly, 1880-2015 (vs. 1901-2000 Average).
+This project is an exercise in using D3 V4 and ES2016 to create charts. A working demo is available [here](). It uses data from the National Centers for Environmental Information report on US Annual Average Temperature and Anomaly, 1880-2015 (vs. 1901-2000 Average).
 
 The app consists of four charts, that users can switch between by clicking the buttons at the top. Since the focus was on D3, I didn't worry about responsive design in this version, although I may tweak the app for mobile viewing on a later version.
 

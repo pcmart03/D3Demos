@@ -36,4 +36,11 @@ gulp.task('babel', () => {
         .pipe(gulp.dest('./js'))
 });
 
+gulp.task('uglify', () => {
+        return gulp.src(path.join(__dirname, 'js', 'app.js'))
+            .pipe(uglify())
+            .pipe(gulp.dest(path.join(__dirname, 'js', 'min')))
+    });
+
 gulp.task('build', ['less', 'babel']);
+
